@@ -1,32 +1,50 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `StaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `StaticQuery`: https://gatsby.dev/staticquery
- */
-
-const Image = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
+const SkylineImage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      skylineImage: file(relativePath: { eq: "skyline.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
-    `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
-  />
-)
-export default Image
+    }
+  `)
+  return <Img fluid={data.skylineImage.childImageSharp.fluid} />
+}
+
+const IconImage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      iconImage: file(relativePath: { eq: "pc-icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  return <Img fluid={data.iconImage.childImageSharp.fluid} />
+}
+
+const LogoImage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      logoImage: file(relativePath: { eq: "PortageLogo_colour.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  return <Img fluid={data.logoImage.childImageSharp.fluid} />
+}
+
+export {LogoImage, IconImage, SkylineImage};

@@ -1,20 +1,38 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+import {LogoImage, IconImage, SkylineImage} from "../components/image"
 import SEO from "../components/seo"
+
+import './index.css';
+
+import Container from '@material-ui/core/Container';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+    <SEO title="Portage Capital" />
+    
+    <div className='backgroundStyle'>
+      <div className='centerInPage'>
+        <Container maxWidth="sm">
+          <LogoImage />
+        </Container>
+      </div>
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
+
+    <div className='large-text'>
+        <Container>
+          <h2>
+            
+          </h2>
+        </Container>
+    </div>
+
+    <div className='text-over-photo'> 
+      
+    </div>
+    
   </Layout>
 )
 

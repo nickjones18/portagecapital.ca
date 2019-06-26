@@ -1,33 +1,52 @@
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { IconImage } from "./image";
 
 const Header = ({ siteTitle }) => (
+
   <header
     style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+      background: `rgba(0, 0, 0, 0)`,
+      //marginBottom: `0`,
+      height: '80px',
+      position: 'fixed',
+      top: '0',
+      width: '100%'
     }}
   >
     <div
       style={{
-        margin: `0 auto`,
+        //margin: `0 auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+      <div
+        style={{
+          maxWidth: 60,
+          margin: 10,
+          marginLeft: 60,
+        }}
+      >
+        <Link to="/">
+          <IconImage />
         </Link>
-      </h1>
+      </div>
+
+      <div
+        style={{
+          position: 'relative',
+          textAlign: 'right',
+          top: -50,
+          color: 'white',
+        }}
+      >
+        <span style={{marginRight: 20}}>Home</span><span style={{marginRight: 20}}>About</span><span style={{marginRight: 20}}>Projects</span><span style={{marginRight: 12}}>Contact</span>
+      </div>
+      
     </div>
+
+
   </header>
 )
 
